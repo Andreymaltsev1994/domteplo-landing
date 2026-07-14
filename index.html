@@ -47,6 +47,10 @@
   .project-card:hover{transform:translateY(-6px);box-shadow:0 28px 52px -18px rgba(43,41,38,0.22)}
   .adv-card{transition:transform .24s,box-shadow .24s}
   .adv-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px rgba(43,41,38,0.13)}
+  /* ── Image zoom on hover (как в карточках проектов) ── */
+  .zoom-wrap img{transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+  .zoom-wrap:hover img{transform:scale(1.05)}
+
   /* ── Reviews deck ── */
   #reviews-deck .review-card{position:absolute;top:0;left:0;width:min(600px,72%);transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .3s;touch-action:pan-y;will-change:transform;box-shadow:0 20px 44px -22px rgba(43,41,38,0.22)}
   #reviews-deck .review-card.is-front{cursor:grab}
@@ -300,7 +304,7 @@
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Заявка и расчёт</h3>
         <p style="font-size:14.5px;line-height:1.55;color:#56514A">Оставляете заявку — в течение дня считаем стоимость и сроки.</p>
         <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Учитываем все ваши пожелания</p>
-        <img src="step-1.webp" alt="Заявка и расчёт" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <div class="zoom-wrap" style="overflow:hidden;border-radius:14px;margin-top:auto"><img src="step-1.webp" alt="Заявка и расчёт" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"></div>
       </div>
 
       <div data-reveal="1" data-grp="process" data-i="1" style="display:flex;flex-direction:column;gap:13px">
@@ -308,7 +312,7 @@
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Договор и проект</h3>
         <p style="font-size:14.5px;line-height:1.55;color:#56514A">Фиксируем цену и сроки, согласуем планировку и комплектацию дома. Вы получаете полный пакет документов.</p>
         <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Точно знаете, за что платите!</p>
-        <img src="step-2.webp" alt="Договор и проект" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <div class="zoom-wrap" style="overflow:hidden;border-radius:14px;margin-top:auto"><img src="step-2.webp" alt="Договор и проект" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"></div>
       </div>
 
       <div data-reveal="1" data-grp="process" data-i="2" style="display:flex;flex-direction:column;gap:13px">
@@ -316,7 +320,7 @@
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Производство и сборка</h3>
         <p style="font-size:14.5px;line-height:1.55;color:#56514A">Изготавливаем панели на заводе и собираем дом на участке. Вы получаете еженедельный фотоотчёт.</p>
         <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Стройка под контролем, даже если вы далеко</p>
-        <img src="step-3.webp" alt="Производство и сборка" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <div class="zoom-wrap" style="overflow:hidden;border-radius:14px;margin-top:auto"><img src="step-3.webp" alt="Производство и сборка" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"></div>
       </div>
 
       <div data-reveal="1" data-grp="process" data-i="3" style="display:flex;flex-direction:column;gap:13px">
@@ -324,7 +328,7 @@
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Сдача под ключ</h3>
         <p style="font-size:14.5px;line-height:1.55;color:#56514A">Принимаете готовый тёплый дом с отделкой и подключёнными коммуникациями. Вручаем ключи и подписываем акт приёма.</p>
         <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Въезжаете и живёте без достроек и доделок</p>
-        <img src="step-4.webp" alt="Сдача под ключ" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <div class="zoom-wrap" style="overflow:hidden;border-radius:14px;margin-top:auto"><img src="step-4.webp" alt="Сдача под ключ" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"></div>
       </div>
 
     </div>
