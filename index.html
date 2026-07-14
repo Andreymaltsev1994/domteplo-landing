@@ -47,8 +47,18 @@
   .project-card:hover{transform:translateY(-6px);box-shadow:0 28px 52px -18px rgba(43,41,38,0.22)}
   .adv-card{transition:transform .24s,box-shadow .24s}
   .adv-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px rgba(43,41,38,0.13)}
-  .review-card{transition:transform .24s,box-shadow .24s}
-  .review-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px rgba(43,41,38,0.13)}
+  /* ── Reviews deck ── */
+  #reviews-deck .review-card{position:absolute;top:0;left:0;width:min(600px,72%);transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .3s;touch-action:pan-y;will-change:transform;box-shadow:0 20px 44px -22px rgba(43,41,38,0.22)}
+  #reviews-deck .review-card.is-front{cursor:grab}
+  #reviews-deck .review-card.is-front:active{cursor:grabbing}
+  #reviews-deck .review-card.is-dragging{transition:box-shadow .3s}
+  .deck-btn{width:46px;height:46px;border-radius:50%;border:1px solid #EAD5C8;background:#fff;color:#935431;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .12s}
+  .deck-btn:hover{background:#F3E8E0}
+  .deck-btn:active{transform:scale(0.92)}
+  @media(max-width:768px){
+    #reviews-deck .review-card{width:100%}
+    .deck-hint{display:none}
+  }
 
   /* ── Typewriter ── */
   .typewriter-box{position:relative;display:inline-block;color:#B5683C;padding:4px 14px;min-height:1.3em;min-width:1ch}
@@ -445,9 +455,9 @@
     Нам доверяют
   </div>
   <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Отзывы наших клиентов</h2>
-  <div class="reviews-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px">
+  <div class="reviews-deck-wrap" style="margin-top:44px"><div id="reviews-deck" style="position:relative">
 
-    <article data-reveal="1" data-i="0" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+    <article class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">АС</span>
         <div>
@@ -458,7 +468,7 @@
       <p style="font-size:14.5px;line-height:1.6;color:#56514A">Очень боялись затягивания сроков, так как старый дом уже продали, а переезжать было некуда. В компании «ДомТепло» нас заверили, что уложатся в 2,5 месяца. И они действительно уложились! Сдали дом на неделю раньше срока. Отдельная благодарность прорабу Сергею — всегда был на связи, присылал фото каждого этапа. Мы приезжали на стройку раз в неделю, но особо и не надо было — ребята работали как часы. Цена в договоре не изменилась ни на рубль, хотя мы сами потом попросили добавить террасу — сделали за доп. смету, но основная стройка прошла чётко. Рекомендуем!</p>
     </article>
 
-    <article data-reveal="1" data-i="1" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+    <article class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ЕГ</span>
         <div>
@@ -469,7 +479,7 @@
       <p style="font-size:14.5px;line-height:1.6;color:#56514A">Долго выбирали строительную компанию. Очень понравилось, что в «ДомТепло» дают фиксированную цену в договоре — это был главный фактор. Наслышаны про истории, когда сначала называют одну цену, а потом она вырастает в два раза. Здесь всё прозрачно: приехал замерщик, всё посчитал, подписали договор — и стоимость не менялась. Дом построили под ключ с чистовой отделкой, заехали с чемоданами. Качество нареканий не вызывает: стены ровные, инженерия работает, зимой тепло. Менеджер Татьяна сопровождала на всех этапах, отвечала даже на глупые вопросы по вечерам. Спасибо команде за профессионализм!</p>
     </article>
 
-    <article data-reveal="1" data-i="2" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+    <article class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ИК</span>
         <div>
@@ -480,7 +490,7 @@
       <p style="font-size:14.5px;line-height:1.6;color:#56514A">Главным критерием был тёплый дом, чтобы зимой не платить за электричество как за самолёт. Выбрали СИП-панели, потому что они самые тёплые. Остановились на «ДомТепло», потому что они дали самую понятную смету и чёткие сроки. Строили нам дом 120 кв. м. Процесс занял ровно 2 месяца. Первую зиму счёт за отопление в 3 раза меньше, чем ранее платили в квартире и мёрзли. Это то, ради чего мы всё и затевали. Приятно, что не пришлось ничего доделывать за строителями.</p>
     </article>
 
-    <article data-reveal="1" data-i="3" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+    <article class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ОМ</span>
         <div>
@@ -491,6 +501,13 @@
       <p style="font-size:14.5px;line-height:1.6;color:#56514A">У нас был сложный участок с перепадом высот, и типовые проекты нам не подходили. В «ДомТепло» взялись за индивидуальный проект без проблем. Архитектор предложил отличное решение с цокольным этажом, которое мы и утвердили. Приятно удивила 3D-визуализация — мы сразу увидели, как будет выглядеть наш дом изнутри и снаружи. Строители дом собрали за 4 недели. Отделочные работы тоже сделали качественно. У нас осталось ощущение, что мы работали с друзьями, которые искренне переживали за результат. Спасибо всей команде «ДомТепло»!</p>
     </article>
 
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap">
+    <button id="reviews-prev" class="deck-btn" aria-label="Предыдущий отзыв">←</button>
+    <button id="reviews-next" class="deck-btn" aria-label="Следующий отзыв">→</button>
+    <span id="reviews-counter" style="font-family:'Geologica';font-weight:700;font-size:15px;color:#935431">1 / 4</span>
+    <span class="deck-hint" style="font-size:13.5px;color:#8A8275">Потяните верхнюю карточку влево, чтобы листать</span>
+  </div>
   </div>
 </section>
 
@@ -780,6 +797,91 @@
   }, { threshold: 0.4 });
 
   document.querySelectorAll('[data-count]').forEach(function(el) { counterIO.observe(el); });
+
+  // ── Reviews deck (стопка карточек со свайпом) ──
+  (function() {
+    var deck = document.getElementById('reviews-deck');
+    if (!deck) return;
+    var cards = Array.prototype.slice.call(deck.querySelectorAll('.review-card'));
+    var n = cards.length;
+    var order = cards.map(function(_, i) { return i; }); // order[pos] = index карточки
+    var counter = document.getElementById('reviews-counter');
+
+    function layout() {
+      // высота контейнера = самая высокая карточка + запас под наклон
+      var maxH = 0;
+      cards.forEach(function(c) { maxH = Math.max(maxH, c.offsetHeight); });
+      deck.style.height = (maxH + 36) + 'px';
+    }
+
+    function render() {
+      var narrow = window.innerWidth <= 768;
+      order.forEach(function(cardIdx, pos) {
+        var c = cards[cardIdx];
+        var rot = pos === 0 ? -4 : (pos - 1) * 3;
+        var x = narrow ? pos * 10 : pos * 12;      // сдвиг в % ширины карточки
+        var y = narrow ? pos * 8 : 0;
+        c.style.zIndex = n - pos;
+        c.style.transform = 'translateX(' + x + '%) translateY(' + y + 'px) rotate(' + rot + 'deg)';
+        c.classList.toggle('is-front', pos === 0);
+      });
+      if (counter) counter.textContent = (order[0] + 1) + ' / ' + n;
+    }
+
+    function next() { order.push(order.shift()); render(); }
+    function prev() { order.unshift(order.pop()); render(); }
+
+    document.getElementById('reviews-next').addEventListener('click', next);
+    document.getElementById('reviews-prev').addEventListener('click', prev);
+
+    // Свайп передней карточки
+    var startX = 0, curX = 0, dragging = false, activeCard = null;
+
+    deck.addEventListener('pointerdown', function(e) {
+      var card = e.target.closest('.review-card');
+      if (!card || !card.classList.contains('is-front')) return;
+      dragging = true;
+      activeCard = card;
+      startX = e.clientX;
+      curX = 0;
+      card.classList.add('is-dragging');
+      card.setPointerCapture(e.pointerId);
+    });
+
+    deck.addEventListener('pointermove', function(e) {
+      if (!dragging || !activeCard) return;
+      curX = e.clientX - startX;
+      var rot = -4 + curX / 25;
+      activeCard.style.transform = 'translateX(' + curX + 'px) rotate(' + rot + 'deg)';
+    });
+
+    function endDrag() {
+      if (!dragging || !activeCard) return;
+      dragging = false;
+      var card = activeCard;
+      activeCard = null;
+      card.classList.remove('is-dragging');
+      if (curX < -90) {
+        // улетает влево, потом в конец стопки
+        card.style.transform = 'translateX(-130%) rotate(-14deg)';
+        setTimeout(next, 220);
+      } else if (curX > 90) {
+        card.style.transform = 'translateX(130%) rotate(14deg)';
+        setTimeout(next, 220);
+      } else {
+        render(); // вернуть на место
+      }
+      curX = 0;
+    }
+
+    deck.addEventListener('pointerup', endDrag);
+    deck.addEventListener('pointercancel', endDrag);
+
+    window.addEventListener('resize', function() { layout(); render(); });
+    if (document.readyState === 'complete') { layout(); render(); }
+    else window.addEventListener('load', function() { layout(); render(); });
+    layout(); render();
+  })();
 
   // ── Scroll reveal ──
   var io = new IntersectionObserver(function(entries) {
