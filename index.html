@@ -74,6 +74,13 @@
   @keyframes blink-cursor{0%,100%{opacity:1}50%{opacity:0}}
   @media(prefers-reduced-motion:reduce){.typewriter-cursor{animation:none;opacity:0}}
 
+  /* ── Catalog popup ── */
+  #catalog-popup.open{display:flex!important}
+  #catalog-popup .popup-card{animation:popup-in .38s cubic-bezier(.22,.61,.36,1)}
+  @keyframes popup-in{from{opacity:0;transform:translateY(26px) scale(0.97)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){#catalog-popup .popup-card{animation:none}}
+  @media(max-width:480px){#catalog-popup{align-items:flex-end!important;padding:0!important}#catalog-popup .popup-card{border-radius:24px 24px 0 0;max-width:none}}
+
   /* ── Live dot ── */
   @keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(74,158,94,0.45)}70%{box-shadow:0 0 0 9px rgba(74,158,94,0)}100%{box-shadow:0 0 0 0 rgba(74,158,94,0)}}
   .live-dot{width:9px;height:9px;border-radius:50%;background:#4A9E5E;display:inline-block;flex-shrink:0;animation:pulse-dot 1.8s infinite}
@@ -707,6 +714,34 @@
   </div>
 </footer>
 
+<!-- CATALOG POPUP -->
+<div id="catalog-popup" role="dialog" aria-modal="true" aria-labelledby="catalog-title" style="display:none;position:fixed;inset:0;z-index:400;align-items:center;justify-content:center;padding:20px">
+  <div id="catalog-backdrop" style="position:absolute;inset:0;background:rgba(34,31,27,0.55);backdrop-filter:blur(4px)"></div>
+  <div class="popup-card" style="position:relative;z-index:1;background:#FBF8F4;border:1px solid #ECE3D8;border-radius:24px;max-width:440px;width:100%;padding:34px 32px 30px;box-shadow:0 40px 80px -30px rgba(43,41,38,0.5)">
+    <button id="catalog-close" aria-label="Закрыть" style="position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:none;background:#F3E8E0;color:#935431;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>
+    <div id="catalog-form-wrap">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#F3E8E0;border-radius:100px;padding:7px 14px;font-family:'Geologica';font-weight:700;font-size:12px;letter-spacing:0.05em;color:#935431;text-transform:uppercase">📗 Бесплатный каталог</div>
+      <h3 id="catalog-title" style="font-weight:800;font-size:25px;line-height:1.12;letter-spacing:-0.02em;color:#221F1B;margin-top:16px">Присматриваете дом? Заберите каталог проектов</h3>
+      <ul style="margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
+        <li style="display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:#56514A"><span style="color:#B5683C;font-weight:700;flex-shrink:0">✓</span>6 проектов с планировками и ценами «под ключ»</li>
+        <li style="display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:#56514A"><span style="color:#B5683C;font-weight:700;flex-shrink:0">✓</span>Что входит в каждый этап строительства</li>
+        <li style="display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:#56514A"><span style="color:#B5683C;font-weight:700;flex-shrink:0">✓</span>Полный состав базовой комплектации</li>
+        <li style="display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:#56514A"><span style="color:#B5683C;font-weight:700;flex-shrink:0">✓</span>Как выбрать участок и не ошибиться с фундаментом</li>
+      </ul>
+      <form id="catalog-form" style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
+        <input type="tel" name="phone" placeholder="Телефон" required style="width:100%;padding:14px 15px;border:1px solid #E4DACD;border-radius:12px;background:#fff;font-size:15px;color:#2B2926;outline:none;transition:border-color .2s">
+        <button type="submit" class="btn-accent" style="width:100%;padding:15px;background:#B5683C;color:#fff;border:none;border-radius:13px;font-family:'Geologica';font-weight:700;font-size:16px;cursor:pointer">Получить каталог</button>
+        <p style="font-size:11.5px;line-height:1.45;color:#9A938A;text-align:center;margin:2px 0 0">Пришлём в WhatsApp или Telegram. Никакого спама — только каталог.</p>
+      </form>
+    </div>
+    <div id="catalog-success" style="display:none;flex-direction:column;align-items:center;text-align:center;padding:18px 0 8px">
+      <span style="width:60px;height:60px;border-radius:50%;background:#F3E8E0;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:26px">📗</span>
+      <h3 style="font-weight:800;font-size:22px;color:#221F1B">Каталог уже в пути!</h3>
+      <p style="font-size:14.5px;line-height:1.5;color:#8A8275;margin-top:8px">Менеджер отправит его вам в мессенджер в течение 15 минут в рабочее время.</p>
+    </div>
+  </div>
+</div>
+
 <script>
   // ── Burger menu ──
   var burger = document.getElementById('burger');
@@ -810,6 +845,55 @@
   }, { threshold: 0.4 });
 
   document.querySelectorAll('[data-count]').forEach(function(el) { counterIO.observe(el); });
+
+  // ── Catalog popup ──
+  (function() {
+    var popup = document.getElementById('catalog-popup');
+    if (!popup) return;
+    var KEY = 'domteplo_catalog_popup';
+    var shown = false;
+    try { shown = localStorage.getItem(KEY) === '1'; } catch (e) {}
+
+    function openPopup() {
+      if (shown) return;
+      shown = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      popup.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      popup.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Триггер 1: прокрутка до половины страницы (человек уже смотрит дома)
+    function onScroll() {
+      var progress = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (progress > 0.5) {
+        window.removeEventListener('scroll', onScroll);
+        openPopup();
+      }
+    }
+    // Триггер 2: 30 секунд на странице
+    if (!shown) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setTimeout(openPopup, 30000);
+    }
+
+    document.getElementById('catalog-close').addEventListener('click', closePopup);
+    document.getElementById('catalog-backdrop').addEventListener('click', closePopup);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && popup.classList.contains('open')) closePopup();
+    });
+
+    document.getElementById('catalog-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('catalog-form-wrap').style.display = 'none';
+      document.getElementById('catalog-success').style.display = 'flex';
+      setTimeout(closePopup, 3500);
+    });
+  })();
 
   // ── Reviews deck (стопка карточек со свайпом) ──
   (function() {
