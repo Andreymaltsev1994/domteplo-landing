@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ДомТепло — дома из SIP-панелей под ключ</title>
-<meta name="description" content="Строительство домов из SIP-панелей под ключ. Фиксированная цена в договоре, гарантия 5 лет, срок 1–3 месяца. Бесплатный расчёт.">
-<meta property="og:title" content="ДомТепло — дома из SIP-панелей под ключ">
-<meta property="og:description" content="Энергоэффективные дома под ключ: фиксированная цена, гарантия 5 лет, сдача без задержек.">
+<title>ДомТепло — дома из СИП-панелей под ключ от 2,5 млн р</title>
+<meta name="description" content="Строительство домов из СИП-панелей под ключ от 2,5 млн р. Фиксированная цена в договоре, гарантия 5 лет, срок 1–3 месяца. Проект бесплатно.">
+<meta property="og:title" content="ДомТепло — дома из СИП-панелей под ключ от 2,5 млн р">
+<meta property="og:description" content="Строим за 1–3 месяца без задержек. Цена в договоре окончательная, гарантия 5 лет.">
 <meta property="og:image" content="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/hero.jpeg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FBF8F4">
@@ -32,6 +32,9 @@
   .btn-accent{transition:filter .18s,transform .12s}
   .btn-accent:hover{filter:brightness(0.93)}
   .btn-accent:active{transform:scale(0.96)}
+  .btn-light{transition:filter .18s,transform .12s}
+  .btn-light:hover{filter:brightness(0.96)}
+  .btn-light:active{transform:scale(0.96)}
 
   /* ── Nav ── */
   .nav-link{transition:color .2s}
@@ -44,14 +47,32 @@
   .project-card:hover{transform:translateY(-6px);box-shadow:0 28px 52px -18px rgba(43,41,38,0.22)}
   .adv-card{transition:transform .24s,box-shadow .24s}
   .adv-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px rgba(43,41,38,0.13)}
+  .review-card{transition:transform .24s,box-shadow .24s}
+  .review-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -14px rgba(43,41,38,0.13)}
+
+  /* ── Live dot ── */
+  @keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(74,158,94,0.45)}70%{box-shadow:0 0 0 9px rgba(74,158,94,0)}100%{box-shadow:0 0 0 0 rgba(74,158,94,0)}}
+  .live-dot{width:9px;height:9px;border-radius:50%;background:#4A9E5E;display:inline-block;flex-shrink:0;animation:pulse-dot 1.8s infinite}
+  @media(prefers-reduced-motion:reduce){.live-dot{animation:none}}
+
+  /* ── FAQ ── */
+  .faq-item{background:#fff;border:1px solid #ECE3D8;border-radius:16px;overflow:hidden;transition:box-shadow .2s}
+  .faq-item[open]{box-shadow:0 14px 32px -18px rgba(43,41,38,0.16)}
+  .faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;font-family:'Geologica';font-weight:700;font-size:17px;color:#221F1B}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary .faq-arrow{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#F3E8E0;display:flex;align-items:center;justify-content:center;transition:transform .25s;font-size:14px;color:#935431}
+  .faq-item[open] summary .faq-arrow{transform:rotate(180deg)}
+  .faq-body{padding:0 26px 24px;font-size:15px;line-height:1.6;color:#56514A}
+  .faq-body ul{margin:10px 0 0;padding-left:20px}
+  .faq-body li{margin-bottom:6px}
 
   /* ── Input focus ── */
   input:focus,select:focus{border-color:#B5683C!important;outline:none}
 
   /* ── Mobile nav overlay ── */
-  #mobile-nav{display:none;position:fixed;inset:0;z-index:200;background:#FBF8F4;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+  #mobile-nav{display:none;position:fixed;inset:0;z-index:200;background:#FBF8F4;flex-direction:column;align-items:center;justify-content:center;gap:28px}
   #mobile-nav.open{display:flex}
-  #mobile-nav a{font-family:'Geologica';font-weight:700;font-size:30px;letter-spacing:-0.02em;color:#221F1B;text-decoration:none;transition:color .2s}
+  #mobile-nav a{font-family:'Geologica';font-weight:700;font-size:27px;letter-spacing:-0.02em;color:#221F1B;text-decoration:none;transition:color .2s}
   #mobile-nav a:hover{color:#B5683C}
   #mobile-nav .nav-cta{color:#B5683C!important}
 
@@ -69,18 +90,19 @@
     .header-phone{display:none}
     .footer-grid{grid-template-columns:1fr!important}
     .final-form-grid{grid-template-columns:1fr!important}
+    .about-grid{grid-template-columns:1fr!important}
     .hero-content{padding:0 20px clamp(28px,5vw,44px)!important}
-    .hero-form-row{flex-direction:column!important;gap:10px!important}
-    .hero-form-row button{width:100%!important}
+    .hero-cta-row{flex-direction:column!important;align-items:stretch!important}
+    .hero-cta-row .btn-accent{text-align:center}
     .process-timeline-bar{display:none!important}
     .process-grid{grid-template-columns:1fr 1fr!important}
     .trust-grid{grid-template-columns:1fr 1fr!important}
-    .testimonial-quote{grid-template-columns:1fr!important}
-    .testimonial-mark{display:none!important}
+    .reviews-grid{grid-template-columns:1fr!important}
   }
   @media(max-width:500px){
     .process-grid{grid-template-columns:1fr!important}
     .projects-grid{grid-template-columns:1fr!important}
+    .trust-grid{grid-template-columns:1fr!important}
   }
 </style>
 </head>
@@ -92,8 +114,10 @@
   <a href="#advantages" onclick="closeNav()">Преимущества</a>
   <a href="#process" onclick="closeNav()">Этапы</a>
   <a href="#projects" onclick="closeNav()">Проекты</a>
-  <a href="#contacts" onclick="closeNav()">Контакты</a>
-  <a href="#zayavka" class="nav-cta" onclick="closeNav()">Бесплатный расчёт</a>
+  <a href="#reviews" onclick="closeNav()">Отзывы</a>
+  <a href="#faq" onclick="closeNav()">Вопросы</a>
+  <a href="#about" onclick="closeNav()">О компании</a>
+  <a href="#zayavka" class="nav-cta" onclick="closeNav()">Получить расчёт</a>
 </div>
 
 <!-- HEADER -->
@@ -103,15 +127,16 @@
       <span style="width:30px;height:30px;border-radius:9px;background:#B5683C;flex-shrink:0;display:block"></span>
       <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#2B2926;letter-spacing:-0.02em">ДомТепло</span>
     </a>
-    <nav class="main-nav" aria-label="Основная навигация" style="display:flex;gap:30px;font-size:15px;font-weight:500">
+    <nav class="main-nav" aria-label="Основная навигация" style="display:flex;gap:26px;font-size:15px;font-weight:500">
       <a href="#advantages" class="nav-link" style="text-decoration:none;color:#56514A">Преимущества</a>
       <a href="#process" class="nav-link" style="text-decoration:none;color:#56514A">Этапы</a>
       <a href="#projects" class="nav-link" style="text-decoration:none;color:#56514A">Проекты</a>
-      <a href="#contacts" class="nav-link" style="text-decoration:none;color:#56514A">Контакты</a>
+      <a href="#reviews" class="nav-link" style="text-decoration:none;color:#56514A">Отзывы</a>
+      <a href="#faq" class="nav-link" style="text-decoration:none;color:#56514A">Вопросы</a>
     </nav>
     <div style="display:flex;align-items:center;gap:16px">
       <a href="tel:+78001234567" class="header-phone" style="font-family:'Geologica';font-weight:700;font-size:16px;color:#2B2926;text-decoration:none;white-space:nowrap">8 800 123-45-67</a>
-      <a href="#zayavka" class="btn-accent" style="text-decoration:none;background:#B5683C;color:#fff;font-family:'Geologica';font-weight:600;font-size:14px;padding:11px 20px;border-radius:11px;white-space:nowrap">Бесплатный расчёт</a>
+      <a href="#zayavka" class="btn-accent" style="text-decoration:none;background:#B5683C;color:#fff;font-family:'Geologica';font-weight:600;font-size:14px;padding:11px 20px;border-radius:11px;white-space:nowrap">Получить расчёт</a>
       <button id="burger" aria-label="Открыть меню" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -123,48 +148,18 @@
 
 <!-- HERO -->
 <section style="max-width:1320px;margin:0 auto;padding:24px 24px 0">
-  <div style="position:relative;border-radius:30px;overflow:hidden;min-height:clamp(480px,62vh,660px);display:flex;flex-direction:column;justify-content:flex-end;background:url('https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/hero.jpeg') center/cover no-repeat">
+  <div style="position:relative;border-radius:30px;overflow:hidden;min-height:clamp(500px,66vh,680px);display:flex;flex-direction:column;justify-content:flex-end;background:url('hero.jpeg') center/cover no-repeat">
     <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(251,248,244,0.97) 0%,rgba(251,248,244,0.88) 22%,rgba(251,248,244,0.4) 50%,rgba(251,248,244,0) 74%)"></div>
-    <div class="hero-content" style="position:relative;z-index:2;padding:0 clamp(28px,5vw,64px) clamp(40px,5vw,64px);max-width:860px">
-      <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Geologica';font-weight:600;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#B5683C;margin-bottom:20px">
-        <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
-        Дома из SIP-панелей под ключ
-      </div>
-      <h1 style="font-weight:800;font-size:clamp(38px,5.6vw,76px);line-height:0.97;letter-spacing:-0.035em;color:#211E1A;text-wrap:balance">Тёплый дом для вашей семьи — за 1–3 месяца</h1>
-      <p style="font-size:clamp(16px,1.7vw,20px);line-height:1.5;color:#56514A;max-width:520px;margin-top:22px">Энергоэффективные дома под ключ: фиксированная цена в договоре, гарантия 5 лет и сдача без задержек.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
-        <span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.9);border:1px solid #E6DCCF;border-radius:100px;padding:9px 16px;font-size:14px;font-weight:600;color:#3D3A34">Фиксированная цена</span>
+    <div class="hero-content" style="position:relative;z-index:2;padding:0 clamp(28px,5vw,64px) clamp(40px,5vw,64px);max-width:900px">
+      <h1 style="font-weight:800;font-size:clamp(36px,5.2vw,68px);line-height:1;letter-spacing:-0.035em;color:#211E1A;text-wrap:balance">Дом из СИП-панелей под ключ <span style="color:#B5683C;white-space:nowrap">от 2,5 млн р</span></h1>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+        <span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.9);border:1px solid #E6DCCF;border-radius:100px;padding:9px 16px;font-size:14px;font-weight:600;color:#3D3A34">Строим за 1–3 месяца без задержек</span>
+        <span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.9);border:1px solid #E6DCCF;border-radius:100px;padding:9px 16px;font-size:14px;font-weight:600;color:#3D3A34">Цена в договоре окончательная</span>
         <span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.9);border:1px solid #E6DCCF;border-radius:100px;padding:9px 16px;font-size:14px;font-weight:600;color:#3D3A34">Гарантия 5 лет</span>
-        <span style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.9);border:1px solid #E6DCCF;border-radius:100px;padding:9px 16px;font-size:14px;font-weight:600;color:#3D3A34">Под ключ с отделкой</span>
       </div>
-    </div>
-  </div>
-
-  <!-- Hero form -->
-  <div style="position:relative;z-index:5;margin:-36px clamp(12px,4vw,48px) 0">
-    <div id="hero-form-wrap">
-      <form id="hero-form" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;box-shadow:0 26px 56px -28px rgba(43,41,38,0.42);padding:16px 16px 14px 24px">
-        <div class="hero-form-row" style="display:flex;align-items:center;gap:13px;flex-wrap:wrap">
-          <div style="flex:1 1 150px;min-width:0">
-            <div style="font-family:'Geologica';font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#B5683C;margin-bottom:3px">Бесплатный расчёт</div>
-            <div style="font-size:13.5px;color:#8A8275;line-height:1.3">Ответим за 1 рабочий день</div>
-          </div>
-          <input type="text" name="name" placeholder="Ваше имя" required style="flex:1 1 130px;min-width:0;padding:13px 15px;border:1px solid #E4DACD;border-radius:11px;background:#FBF8F4;font-size:15px;color:#2B2926;outline:none;transition:border-color .2s">
-          <input type="tel" name="phone" placeholder="Телефон" required style="flex:1 1 150px;min-width:0;padding:13px 15px;border:1px solid #E4DACD;border-radius:11px;background:#FBF8F4;font-size:15px;color:#2B2926;outline:none;transition:border-color .2s">
-          <button type="submit" class="btn-accent" style="flex:0 0 auto;padding:14px 26px;background:#B5683C;color:#fff;border:none;border-radius:11px;font-family:'Geologica';font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap">Получить расчёт</button>
-        </div>
-        <p style="font-size:11.5px;line-height:1.4;color:#9A938A;margin:10px 0 0">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
-      </form>
-    </div>
-    <div id="hero-success" style="display:none;background:#fff;border:1px solid #ECE3D8;border-radius:18px;box-shadow:0 26px 56px -28px rgba(43,41,38,0.42);padding:24px 26px">
-      <div style="display:flex;align-items:center;gap:18px">
-        <span style="flex:none;width:52px;height:52px;border-radius:50%;background:#F3E8E0;display:flex;align-items:center;justify-content:center">
-          <span style="width:18px;height:10px;border-left:3px solid #B5683C;border-bottom:3px solid #B5683C;transform:rotate(-45deg);display:block;margin-top:-4px"></span>
-        </span>
-        <div>
-          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Заявка принята</h3>
-          <p style="font-size:14px;line-height:1.45;color:#8A8275;margin-top:5px">Менеджер свяжется с вами в течение рабочего дня.</p>
-        </div>
+      <div class="hero-cta-row" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:30px">
+        <a href="#zayavka" class="btn-accent" style="text-decoration:none;background:#B5683C;color:#fff;font-family:'Geologica';font-weight:700;font-size:17px;padding:17px 34px;border-radius:14px;box-shadow:0 16px 34px -14px rgba(181,104,60,0.55)">Получить расчёт</a>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Geologica';font-weight:600;font-size:15px;color:#935431">🎁 Проект бесплатно</span>
       </div>
     </div>
   </div>
@@ -177,15 +172,15 @@
       <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
       Почему нам доверяют
     </div>
-    <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Понятные условия без сюрпризов</h2>
+    <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Строим по-честному: никаких сюрпризов</h2>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
     <div data-reveal="1" data-i="0" class="adv-card" style="flex:1.7 1 360px;min-width:300px;background:#F3E8E0;border:1px solid #EAD5C8;border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:15px">
       <span style="align-self:flex-start;font-family:'Geologica';font-weight:700;font-size:11px;letter-spacing:0.12em;color:#935431;background:rgba(255,255,255,0.65);padding:5px 10px;border-radius:7px">ЦЕНА</span>
-      <h3 style="font-weight:800;font-size:clamp(24px,2.6vw,32px);line-height:1.04;letter-spacing:-0.02em;color:#221F1B">Фиксированная цена в договоре</h3>
-      <p style="font-size:16px;line-height:1.55;color:#56514A;max-width:430px">Стоимость закрепляем до начала работ. Никаких доплат сверху — вы платите ровно столько, сколько указано в смете.</p>
+      <h3 style="font-weight:800;font-size:clamp(24px,2.6vw,32px);line-height:1.04;letter-spacing:-0.02em;color:#221F1B">Фиксированная цена</h3>
+      <p style="font-size:16px;line-height:1.55;color:#56514A;max-width:430px"><strong>Цена в договоре = цена к оплате.</strong> Никаких доплат за «непредвиденные» работы — вы платите ровно столько, сколько указано в смете.</p>
       <div style="margin-top:auto;display:flex;align-items:baseline;gap:12px;padding-top:20px">
-        <span style="font-family:'Geologica';font-weight:800;font-size:clamp(34px,4vw,44px);line-height:1;color:#935431;letter-spacing:-0.02em">0 ₽</span>
+        <span style="font-family:'Geologica';font-weight:800;font-size:clamp(34px,4vw,44px);line-height:1;color:#935431;letter-spacing:-0.02em">0 р.</span>
         <span style="font-size:14px;color:#56514A;line-height:1.25">скрытых<br>доплат</span>
       </div>
     </div>
@@ -193,23 +188,61 @@
       <div data-reveal="1" data-i="1" class="adv-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:24px 26px;display:flex;flex-direction:column;gap:9px">
         <div style="display:flex;align-items:center;gap:11px;flex-wrap:wrap">
           <span style="font-family:'Geologica';font-weight:700;font-size:11px;letter-spacing:0.12em;color:#B5683C;background:#F3E8E0;padding:4px 9px;border-radius:7px">СРОКИ</span>
-          <h3 style="font-weight:700;font-size:19px;color:#221F1B">Срок 1–3 месяца</h3>
+          <h3 style="font-weight:700;font-size:19px;color:#221F1B">Срок 1–3 месяца — отвечаем рублём</h3>
         </div>
-        <p style="font-size:14.5px;line-height:1.5;color:#56514A">От заявки до сдачи. Сроки прописаны в договоре — за просрочку отвечаем рублём.</p>
+        <p style="font-size:14.5px;line-height:1.5;color:#56514A">Сроки прописаны в договоре. За каждый день просрочки мы платим неустойку. Строим так, чтобы вы въехали в дом уже в этом квартале.</p>
       </div>
       <div data-reveal="1" data-i="2" class="adv-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:24px 26px;display:flex;flex-direction:column;gap:9px">
         <div style="display:flex;align-items:center;gap:11px;flex-wrap:wrap">
           <span style="font-family:'Geologica';font-weight:700;font-size:11px;letter-spacing:0.12em;color:#B5683C;background:#F3E8E0;padding:4px 9px;border-radius:7px">ГАРАНТИЯ</span>
-          <h3 style="font-weight:700;font-size:19px;color:#221F1B">5 лет на дом</h3>
+          <h3 style="font-weight:700;font-size:19px;color:#221F1B">Гарантия 5 лет на всё</h3>
         </div>
-        <p style="font-size:14.5px;line-height:1.5;color:#56514A">Гарантия на конструкцию и работы. Обслуживаем дом и после сдачи.</p>
+        <p style="font-size:14.5px;line-height:1.5;color:#56514A">Гарантия на конструкцию и все виды работ. Обслуживаем дом и после сдачи — просто позвоните.</p>
       </div>
       <div data-reveal="1" data-i="3" class="adv-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:24px 26px;display:flex;flex-direction:column;gap:9px">
         <div style="display:flex;align-items:center;gap:11px;flex-wrap:wrap">
           <span style="font-family:'Geologica';font-weight:700;font-size:11px;letter-spacing:0.12em;color:#B5683C;background:#F3E8E0;padding:4px 9px;border-radius:7px">ТЕПЛО</span>
-          <h3 style="font-weight:700;font-size:19px;color:#221F1B">Тёплый контур</h3>
+          <h3 style="font-weight:700;font-size:19px;color:#221F1B">Тёплый дом круглый год</h3>
         </div>
-        <p style="font-size:14.5px;line-height:1.5;color:#56514A">SIP-панели держат тепло — экономия на отоплении круглый год.</p>
+        <p style="font-size:14.5px;line-height:1.5;color:#56514A">Используем СИП-панели, которые в 7 раз теплее кирпича. Экономия на отоплении до 70% каждый год.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section aria-label="Наш подход" style="max-width:1200px;margin:0 auto;padding:clamp(70px,8vw,96px) 32px 0">
+  <div data-reveal="1" data-i="0" style="text-align:center;max-width:760px;margin:0 auto">
+    <p style="font-family:'Geologica';font-weight:800;font-size:clamp(26px,3.6vw,42px);line-height:1.12;letter-spacing:-0.025em;color:#221F1B;text-wrap:balance">Мы строим так, как хотели бы, чтобы строили нам</p>
+    <a href="#zayavka" class="btn-accent" style="display:inline-block;margin-top:30px;text-decoration:none;background:#B5683C;color:#fff;font-family:'Geologica';font-weight:700;font-size:16px;padding:16px 32px;border-radius:13px;box-shadow:0 16px 34px -14px rgba(181,104,60,0.55)">Получить расчёт</a>
+  </div>
+</section>
+
+<!-- TRUST BAND — animated counters -->
+<section id="stats" style="margin:clamp(70px,8vw,100px) 0 24px" aria-label="Цифры о нас">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
+    <div style="background:linear-gradient(135deg,#B5683C 0%,#9C5530 100%);border-radius:24px;padding:clamp(44px,5vw,64px) clamp(32px,5vw,56px)">
+      <div class="trust-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,4vw,44px)">
+        <div data-reveal="1" data-i="0" style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-0.02em;color:#fff"><span data-count="9">0</span> лет</span>
+          <span style="font-family:'Geologica';font-weight:700;font-size:15px;line-height:1.35;color:#fff">на рынке загородного строительства</span>
+          <span style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.78)">Прошли кризисы и взлёты. Мы не исчезнем — вы всегда сможете обратиться по гарантии.</span>
+        </div>
+        <div data-reveal="1" data-i="1" style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-0.02em;color:#fff">&gt;<span data-count="240">0</span></span>
+          <span style="font-family:'Geologica';font-weight:700;font-size:15px;line-height:1.35;color:#fff">домов построено под ключ</span>
+          <span style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.78)">Знаем каждый этап строительства вдоль и поперёк. Отработанные решения — без вашего участия в стройке.</span>
+        </div>
+        <div data-reveal="1" data-i="2" style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-0.02em;color:#fff"><span data-count="5">0</span> лет</span>
+          <span style="font-family:'Geologica';font-weight:700;font-size:15px;line-height:1.35;color:#fff">гарантии закрепляем в договоре</span>
+          <span style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.78)">Чиним за свой счёт без вопросов.</span>
+        </div>
+        <div data-reveal="1" data-i="3" style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-0.02em;color:#fff">1–<span data-count="3">0</span> мес</span>
+          <span style="font-family:'Geologica';font-weight:700;font-size:15px;line-height:1.35;color:#fff">от заявки до сдачи</span>
+          <span style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.78)">Въезжаете в дом в этом сезоне, а не через год. Сроки в договоре — отвечаем рублём за просрочку.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -221,161 +254,315 @@
     <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
     Как это работает
   </div>
-  <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B;max-width:620px">Четыре шага до готового дома</h2>
+  <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B;max-width:620px">Как мы работаем — 4 шага</h2>
   <div style="position:relative;margin-top:52px">
     <div class="process-timeline-bar" aria-hidden="true" style="position:absolute;left:23px;right:23px;top:23px;height:2px;background:linear-gradient(to right,#EAD5C8,#B5683C,#EAD5C8);z-index:0"></div>
     <div class="process-grid" style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:28px">
 
-      <div data-reveal="1" data-grp="process" data-i="0" style="display:flex;flex-direction:column;gap:15px">
+      <div data-reveal="1" data-grp="process" data-i="0" style="display:flex;flex-direction:column;gap:13px">
         <span style="box-sizing:border-box;width:46px;height:46px;border-radius:50%;background:#B5683C;color:#fff;border:4px solid #FBF8F4;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;flex-shrink:0">1</span>
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Заявка и расчёт</h3>
-        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Оставляете заявку — в течение дня считаем стоимость и сроки по вашему проекту.</p>
+        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Оставляете заявку — в течение дня считаем стоимость и сроки.</p>
+        <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Учитываем все ваши пожелания</p>
         <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/5b889c6/step-1.jpg" alt="Заявка и расчёт" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
       </div>
 
-      <div data-reveal="1" data-grp="process" data-i="1" style="display:flex;flex-direction:column;gap:15px">
+      <div data-reveal="1" data-grp="process" data-i="1" style="display:flex;flex-direction:column;gap:13px">
         <span style="box-sizing:border-box;width:46px;height:46px;border-radius:50%;background:#B5683C;color:#fff;border:4px solid #FBF8F4;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;flex-shrink:0">2</span>
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Договор и проект</h3>
-        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Фиксируем цену и сроки, согласуем планировку и комплектацию дома.</p>
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/step-2.png" alt="Договор и проект" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Фиксируем цену и сроки, согласуем планировку и комплектацию дома. Вы получаете полный пакет документов.</p>
+        <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Точно знаете, за что платите!</p>
+        <img src="step-2.png" alt="Договор и проект" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
       </div>
 
-      <div data-reveal="1" data-grp="process" data-i="2" style="display:flex;flex-direction:column;gap:15px">
+      <div data-reveal="1" data-grp="process" data-i="2" style="display:flex;flex-direction:column;gap:13px">
         <span style="box-sizing:border-box;width:46px;height:46px;border-radius:50%;background:#B5683C;color:#fff;border:4px solid #FBF8F4;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;flex-shrink:0">3</span>
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Производство и сборка</h3>
-        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Изготавливаем панели на заводе и собираем дом на участке за 3–6 недель.</p>
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/step-3.jpeg" alt="Производство и сборка" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Изготавливаем панели на заводе и собираем дом на участке. Вы получаете еженедельный фотоотчёт.</p>
+        <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Стройка под контролем, даже если вы далеко</p>
+        <img src="step-3.jpeg" alt="Производство и сборка" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
       </div>
 
-      <div data-reveal="1" data-grp="process" data-i="3" style="display:flex;flex-direction:column;gap:15px">
+      <div data-reveal="1" data-grp="process" data-i="3" style="display:flex;flex-direction:column;gap:13px">
         <span style="box-sizing:border-box;width:46px;height:46px;border-radius:50%;background:#B5683C;color:#fff;border:4px solid #FBF8F4;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;flex-shrink:0">4</span>
         <h3 style="font-weight:700;font-size:19px;color:#221F1B">Сдача под ключ</h3>
-        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Принимаете готовый тёплый дом с отделкой и подключёнными коммуникациями.</p>
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/step-4.jpeg" alt="Сдача под ключ" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
+        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Принимаете готовый тёплый дом с отделкой и подключёнными коммуникациями. Вручаем ключи и подписываем акт приёма.</p>
+        <p style="font-family:'Geologica';font-weight:600;font-size:13.5px;line-height:1.4;color:#935431">Въезжаете и живёте без достроек и доделок</p>
+        <img src="step-4.jpeg" alt="Сдача под ключ" loading="lazy" width="400" height="300" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-top:auto;display:block">
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL — editorial break -->
-<section aria-label="Отзыв клиента" style="margin:clamp(80px,10vw,120px) 0">
-  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
-    <div data-reveal="1" data-i="0" class="testimonial-quote" style="border-top:2px solid #EAD5C8;border-bottom:2px solid #EAD5C8;padding:clamp(48px,7vw,84px) 0;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start">
-      <blockquote style="margin:0">
-        <p style="font-family:'Geologica';font-weight:700;font-size:clamp(20px,3vw,38px);line-height:1.2;letter-spacing:-0.025em;color:#221F1B;font-style:italic;max-width:780px">«Дом сдали на четыре дня раньше срока. Я не верила, что так бывает в строительстве — но вот стою в своей кухне и пишу это.»</p>
-        <footer style="margin-top:28px;display:flex;align-items:center;gap:14px">
-          <span style="width:40px;height:40px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:15px;color:#935431">М</span>
-          <div>
-            <div style="font-family:'Geologica';font-weight:700;font-size:15px;color:#221F1B">Марина Соколова</div>
-            <div style="font-size:13px;color:#8A8275;margin-top:2px">Дом «Сканди», 96 м² · Подмосковье, 2025</div>
-          </div>
-        </footer>
-      </blockquote>
-      <div class="testimonial-mark" aria-hidden="true" style="font-family:'Geologica';font-weight:800;font-size:clamp(80px,12vw,160px);line-height:0.85;color:#EAD5C8;user-select:none;flex-shrink:0;margin-top:-10px">"</div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" style="max-width:1200px;margin:0 auto;padding:0 32px 24px;scroll-margin-top:90px">
+<section id="projects" style="max-width:1200px;margin:0 auto;padding:clamp(80px,9vw,112px) 32px 24px;scroll-margin-top:90px">
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <div>
       <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Geologica';font-weight:600;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#B5683C;margin-bottom:16px">
         <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
         Готовые проекты
       </div>
-      <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Дома, которые мы строим</h2>
+      <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Реализованные проекты</h2>
     </div>
     <a href="#zayavka" class="link-accent" style="text-decoration:none;color:#B5683C;font-family:'Geologica';font-weight:600;font-size:15px;white-space:nowrap">Подобрать проект →</a>
   </div>
   <div class="projects-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px">
 
-    <article data-reveal="1" data-grp="gallery" data-i="0" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-skandi.jpeg" alt="Дом Сканди — 96 м², 2 спальни" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+    <article data-reveal="1" data-grp="gallery" data-i="0" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-skandi.jpeg" alt="Дом Сканди — 96 м², 2 спальни" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+        <span style="position:absolute;top:14px;left:14px;background:#B5683C;color:#fff;font-family:'Geologica';font-weight:700;font-size:12px;letter-spacing:0.04em;padding:6px 12px;border-radius:100px;box-shadow:0 8px 18px -6px rgba(43,41,38,0.4)">🔥 Хит сезона</span>
       </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Сканди</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">96 м² · 2 спальни</span>
-      </div>
-    </article>
-
-    <article data-reveal="1" data-grp="gallery" data-i="1" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-nord.png" alt="Дом Норд — 120 м², 3 спальни" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
-      </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Норд</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">120 м² · 3 спальни</span>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Сканди</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">96 м² · 2 спальни</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 3,9 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
       </div>
     </article>
 
-    <article data-reveal="1" data-grp="gallery" data-i="2" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-loft.png" alt="Дом Лофт — 78 м², 1 этаж" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+    <article data-reveal="1" data-grp="gallery" data-i="1" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-nord.png" alt="Дом Норд — 120 м², 3 спальни" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
       </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Лофт</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">78 м² · 1 этаж</span>
-      </div>
-    </article>
-
-    <article data-reveal="1" data-grp="gallery" data-i="3" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-famili.png" alt="Дом Фамили — 145 м², 2 этажа" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
-      </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Фамили</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">145 м² · 2 этажа</span>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Норд</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">120 м² · 3 спальни</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 4,8 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
       </div>
     </article>
 
-    <article data-reveal="1" data-grp="gallery" data-i="4" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-dacha.png" alt="Дом Дача — 54 м², компакт" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+    <article data-reveal="1" data-grp="gallery" data-i="2" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-loft.png" alt="Дом Лофт — 78 м², 1 этаж" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
       </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Дача</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">54 м² · компакт</span>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Лофт</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">78 м² · 1 этаж</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 3,2 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
       </div>
     </article>
 
-    <article data-reveal="1" data-grp="gallery" data-i="5" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden">
-      <div style="overflow:hidden">
-        <img src="https://raw.githubusercontent.com/Andreymaltsev1994/domteplo-landing/25d2bf9/project-barn.png" alt="Дом Барн — 132 м², барнхаус" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+    <article data-reveal="1" data-grp="gallery" data-i="3" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-famili.png" alt="Дом Фамили — 145 м², 2 этажа" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+        <span style="position:absolute;top:14px;left:14px;background:#fff;color:#935431;font-family:'Geologica';font-weight:700;font-size:12px;letter-spacing:0.04em;padding:6px 12px;border-radius:100px;box-shadow:0 8px 18px -6px rgba(43,41,38,0.3)">Для большой семьи</span>
       </div>
-      <div style="padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <h3 style="font-weight:700;font-size:20px;color:#221F1B">Барн</h3>
-        <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">132 м² · барнхаус</span>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Фамили</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">145 м² · 2 этажа</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 5,7 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
+      </div>
+    </article>
+
+    <article data-reveal="1" data-grp="gallery" data-i="4" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-dacha.png" alt="Дом Дача — 54 м², компакт" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+        <span style="position:absolute;top:14px;left:14px;background:#4A9E5E;color:#fff;font-family:'Geologica';font-weight:700;font-size:12px;letter-spacing:0.04em;padding:6px 12px;border-radius:100px;box-shadow:0 8px 18px -6px rgba(43,41,38,0.4)">Выгодно</span>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Дача</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">54 м² · компакт</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 2,5 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
+      </div>
+    </article>
+
+    <article data-reveal="1" data-grp="gallery" data-i="5" class="project-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+      <div style="overflow:hidden;position:relative">
+        <img src="project-barn.png" alt="Дом Барн — 132 м², барнхаус" loading="lazy" width="560" height="420" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+        <span style="position:absolute;top:14px;left:14px;background:#221F1B;color:#fff;font-family:'Geologica';font-weight:700;font-size:12px;letter-spacing:0.04em;padding:6px 12px;border-radius:100px;box-shadow:0 8px 18px -6px rgba(43,41,38,0.4)">Новинка</span>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <h3 style="font-weight:700;font-size:20px;color:#221F1B">Барн</h3>
+          <span style="font-size:13.5px;color:#8A8275;text-align:right;white-space:nowrap">132 м² · барнхаус</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto">
+          <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#935431;white-space:nowrap">от 5,4 млн р</span>
+          <a href="#zayavka" class="btn-light" style="text-decoration:none;background:#F3E8E0;color:#935431;font-family:'Geologica';font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;white-space:nowrap">Расчёт по проекту</a>
+        </div>
       </div>
     </article>
 
   </div>
 </section>
 
-<!-- TRUST BAND — dark section for visual contrast -->
-<section style="margin:clamp(80px,10vw,112px) 0 24px" aria-label="Наши достижения">
-  <div style="max-width:1200px;margin:0 auto;padding:0 32px">
-    <div style="background:#221F1B;border-radius:24px;padding:clamp(44px,5vw,64px) clamp(32px,5vw,56px)">
-      <div class="trust-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,4vw,48px)">
-        <div data-reveal="1" data-i="0" style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:1;letter-spacing:-0.02em;color:#B5683C">240+</span>
-          <span style="font-size:15px;line-height:1.4;color:rgba(255,255,255,0.55)">домов построено под ключ</span>
-        </div>
-        <div data-reveal="1" data-i="1" style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:1;letter-spacing:-0.02em;color:#B5683C">9 лет</span>
-          <span style="font-size:15px;line-height:1.4;color:rgba(255,255,255,0.55)">на рынке загородного строительства</span>
-        </div>
-        <div data-reveal="1" data-i="2" style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:1;letter-spacing:-0.02em;color:#B5683C">5 лет</span>
-          <span style="font-size:15px;line-height:1.4;color:rgba(255,255,255,0.55)">гарантия по договору</span>
-        </div>
-        <div data-reveal="1" data-i="3" style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'Geologica';font-weight:800;font-size:clamp(36px,4.4vw,54px);line-height:1;letter-spacing:-0.02em;color:#B5683C">1–3 мес</span>
-          <span style="font-size:15px;line-height:1.4;color:rgba(255,255,255,0.55)">средний срок строительства</span>
+<!-- REVIEWS -->
+<section id="reviews" style="max-width:1200px;margin:0 auto;padding:clamp(80px,9vw,112px) 32px 24px;scroll-margin-top:90px">
+  <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Geologica';font-weight:600;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#B5683C;margin-bottom:16px">
+    <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
+    Нам доверяют
+  </div>
+  <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">Отзывы наших клиентов</h2>
+  <div class="reviews-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px">
+
+    <article data-reveal="1" data-i="0" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">АС</span>
+        <div>
+          <div style="font-family:'Geologica';font-weight:700;font-size:16px;color:#221F1B">Сергеев Андрей Михайлович</div>
+          <div style="font-size:13px;color:#8A8275;margin-top:2px">15.06.2026 · деревня Малиновка, Раменский г. о., Московская область</div>
         </div>
       </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#56514A">Очень боялись затягивания сроков, так как старый дом уже продали, а переезжать было некуда. В компании «ДомТепло» нас заверили, что уложатся в 2,5 месяца. И они действительно уложились! Сдали дом на неделю раньше срока. Отдельная благодарность прорабу Сергею — всегда был на связи, присылал фото каждого этапа. Мы приезжали на стройку раз в неделю, но особо и не надо было — ребята работали как часы. Цена в договоре не изменилась ни на рубль, хотя мы сами потом попросили добавить террасу — сделали за доп. смету, но основная стройка прошла чётко. Рекомендуем!</p>
+    </article>
+
+    <article data-reveal="1" data-i="1" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ЕГ</span>
+        <div>
+          <div style="font-family:'Geologica';font-weight:700;font-size:16px;color:#221F1B">Григорьева Екатерина Дмитриевна</div>
+          <div style="font-size:13px;color:#8A8275;margin-top:2px">22.05.2026 · посёлок Октябрьский, Люберецкий район, Московская область</div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#56514A">Долго выбирали строительную компанию. Очень понравилось, что в «ДомТепло» дают фиксированную цену в договоре — это был главный фактор. Наслышаны про истории, когда сначала называют одну цену, а потом она вырастает в два раза. Здесь всё прозрачно: приехал замерщик, всё посчитал, подписали договор — и стоимость не менялась. Дом построили под ключ с чистовой отделкой, заехали с чемоданами. Качество нареканий не вызывает: стены ровные, инженерия работает, зимой тепло. Менеджер Татьяна сопровождала на всех этапах, отвечала даже на глупые вопросы по вечерам. Спасибо команде за профессионализм!</p>
+    </article>
+
+    <article data-reveal="1" data-i="2" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ИК</span>
+        <div>
+          <div style="font-family:'Geologica';font-weight:700;font-size:16px;color:#221F1B">Козлов Игорь Владимирович</div>
+          <div style="font-size:13px;color:#8A8275;margin-top:2px">10.04.2026 · СНТ «Лесное», Солнечногорский район, Московская область</div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#56514A">Главным критерием был тёплый дом, чтобы зимой не платить за электричество как за самолёт. Выбрали СИП-панели, потому что они самые тёплые. Остановились на «ДомТепло», потому что они дали самую понятную смету и чёткие сроки. Строили нам дом 120 кв. м. Процесс занял ровно 2 месяца. Первую зиму счёт за отопление в 3 раза меньше, чем ранее платили в квартире и мёрзли. Это то, ради чего мы всё и затевали. Приятно, что не пришлось ничего доделывать за строителями.</p>
+    </article>
+
+    <article data-reveal="1" data-i="3" class="review-card" style="background:#fff;border:1px solid #ECE3D8;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="width:48px;height:48px;border-radius:50%;background:#F3E8E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Geologica';font-weight:700;font-size:17px;color:#935431">ОМ</span>
+        <div>
+          <div style="font-family:'Geologica';font-weight:700;font-size:16px;color:#221F1B">Морозова Ольга Викторовна</div>
+          <div style="font-size:13px;color:#8A8275;margin-top:2px">18.03.2026 · деревня Грибки, Одинцовский г. о., Московская область</div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#56514A">У нас был сложный участок с перепадом высот, и типовые проекты нам не подходили. В «ДомТепло» взялись за индивидуальный проект без проблем. Архитектор предложил отличное решение с цокольным этажом, которое мы и утвердили. Приятно удивила 3D-визуализация — мы сразу увидели, как будет выглядеть наш дом изнутри и снаружи. Строители дом собрали за 4 недели. Отделочные работы тоже сделали качественно. У нас осталось ощущение, что мы работали с друзьями, которые искренне переживали за результат. Спасибо всей команде «ДомТепло»!</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="max-width:1000px;margin:0 auto;padding:clamp(80px,9vw,112px) 32px 24px;scroll-margin-top:90px">
+  <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Geologica';font-weight:600;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#B5683C;margin-bottom:16px">
+    <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
+    Частые вопросы
+  </div>
+  <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B;max-width:640px">Остались сомнения? Отвечаем на главные вопросы</h2>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-top:44px">
+
+    <details class="faq-item" data-reveal="1" data-i="0" open>
+      <summary>«А что, если цены на материалы вырастут?»<span class="faq-arrow">▾</span></summary>
+      <div class="faq-body">
+        <p><strong>Этот риск мы берём на себя.</strong></p>
+        <p style="margin-top:8px">Мы фиксируем стоимость всех материалов и работ в момент подписания договора. Даже если поставщики поднимут цены, для вас стоимость дома останется неизменной. Вы платите ровно столько, сколько указано в смете — никаких доплат из-за рыночных колебаний. За 9 лет работы мы ни разу не просили клиента доплатить из-за подорожания материалов.</p>
+      </div>
+    </details>
+
+    <details class="faq-item" data-reveal="1" data-i="1">
+      <summary>«Как вы контролируете качество на стройке?»<span class="faq-arrow">▾</span></summary>
+      <div class="faq-body">
+        <p><strong>У нас система двойного контроля.</strong></p>
+        <ul>
+          <li><strong>Фабричное качество панелей</strong> — панели изготавливаются на заводе, а не «на коленке» на участке.</li>
+          <li><strong>Контроль на объекте</strong> — у каждого объекта есть личный прораб, который находится на площадке и отвечает за каждый шов и каждый угол. Мы также присылаем вам еженедельный фотоотчёт о ходе работ. Вы видите всё в реальном времени, даже если находитесь за городом.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item" data-reveal="1" data-i="2">
+      <summary>«Что входит в базовую комплектацию?»<span class="faq-arrow">▾</span></summary>
+      <div class="faq-body">
+        <p><strong>Базовая комплектация — это дом, в котором можно жить.</strong> В неё входит:</p>
+        <ul>
+          <li><strong>Тёплый контур:</strong> возведение стен, перекрытий и кровли из СИП-панелей.</li>
+          <li><strong>Фундамент</strong> (свайно-винтовой или мелкозаглубленный — в зависимости от типа грунта на вашем участке).</li>
+          <li><strong>Окна и входная дверь.</strong></li>
+          <li><strong>Стяжка пола,</strong> ровные стены под чистовую отделку.</li>
+          <li><strong>Инженерные системы:</strong> разводка электричества, отопления и водоснабжения внутри дома до точек подключения.</li>
+        </ul>
+        <p style="margin-top:10px">Подробный список всегда прописан в вашей индивидуальной смете.</p>
+      </div>
+    </details>
+
+    <details class="faq-item" data-reveal="1" data-i="3">
+      <summary>«Предоставляете ли вы рассрочку или помощь с ипотекой?»<span class="faq-arrow">▾</span></summary>
+      <div class="faq-body">
+        <p><strong>Да, у нас есть несколько вариантов оплаты.</strong> Мы понимаем, что строительство дома — это большие инвестиции, поэтому предлагаем:</p>
+        <ul>
+          <li><strong>Поэтапную оплату:</strong> вы платите частями по мере выполнения этапов работ (например, фундамент — стены/крыша — отделка).</li>
+          <li><strong>Помощь с ипотекой:</strong> мы работаем с крупными банками и готовы предоставить все необходимые документы для оформления ипотеки на строительство дома. Консультация по финансовым вопросам бесплатна.</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="max-width:1200px;margin:0 auto;padding:clamp(80px,9vw,112px) 32px 24px;scroll-margin-top:90px">
+  <div class="about-grid" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(32px,5vw,56px);align-items:start">
+    <div data-reveal="1" data-i="0" style="position:sticky;top:100px">
+      <!-- TODO: заменить на реальное фото команды в строительной одежде -->
+      <img src="step-3.jpeg" alt="Команда ДомТепло на объекте" loading="lazy" width="560" height="640" style="width:100%;aspect-ratio:7/8;object-fit:cover;border-radius:24px;display:block">
+    </div>
+    <div data-reveal="1" data-i="1">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Geologica';font-weight:600;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#B5683C;margin-bottom:16px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#B5683C;display:block;flex-shrink:0"></span>
+        О компании
+      </div>
+      <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B">«ДомТепло» — команда, которая строит без переплат и задержек</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-top:26px;font-size:15.5px;line-height:1.62;color:#56514A">
+        <p>«ДомТепло» — это команда строителей, проектировщиков и менеджеров, которые собрались вместе, чтобы делать качественные дома без переплат и задержек.</p>
+        <p>Строим дома из СИП-панелей с 2017 года. За это время сдали больше 240 объектов под ключ. Мы не гонимся за количеством — нам важно, чтобы каждый дом был тёплым, надёжным и стоил ровно столько, сколько мы назвали в смете.</p>
+        <p>Мы видели много историй, когда люди отдавали деньги, а получали недострой, допсметы и бесконечные переносы сроков. <strong style="color:#221F1B">Нам это не нравится!</strong> Нас выбирают те, кто устал от «сюрпризов» в стройке. Мы работаем по договору, где цена и сроки зафиксированы. И мы всегда на связи — от первой заявки до дня, когда мы вручаем вам ключи.</p>
+      </div>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'Geologica';font-weight:700;font-size:16px;color:#221F1B">Что для нас важно</div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="width:8px;height:8px;border-radius:50%;background:#B5683C;flex-shrink:0;margin-top:7px"></span>
+          <p style="font-size:15px;line-height:1.55;color:#56514A"><strong style="color:#221F1B">Честность.</strong> Цена в договоре не меняется.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="width:8px;height:8px;border-radius:50%;background:#B5683C;flex-shrink:0;margin-top:7px"></span>
+          <p style="font-size:15px;line-height:1.55;color:#56514A"><strong style="color:#221F1B">Открытость.</strong> Мы присылаем фотоотчёты и отвечаем на звонки.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="width:8px;height:8px;border-radius:50%;background:#B5683C;flex-shrink:0;margin-top:7px"></span>
+          <p style="font-size:15px;line-height:1.55;color:#56514A"><strong style="color:#221F1B">Ответственность.</strong> Гарантия 5 лет — мы отвечаем за свою работу.</p>
+        </div>
+      </div>
+      <div style="margin-top:28px;background:#F3E8E0;border:1px solid #EAD5C8;border-radius:16px;padding:20px 24px">
+        <div style="font-family:'Geologica';font-weight:700;font-size:15px;color:#935431;margin-bottom:6px">Где мы строим</div>
+        <p style="font-size:14.5px;line-height:1.55;color:#56514A">Московская область и соседние регионы. Выезжаем на замер в любой район.</p>
+      </div>
+      <p style="margin-top:26px;font-family:'Geologica';font-weight:700;font-size:18px;font-style:italic;color:#221F1B">Строим так, как хотели бы, чтобы строили нам.</p>
     </div>
   </div>
 </section>
@@ -391,8 +578,12 @@
           Бесплатный расчёт
         </div>
         <h2 style="font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.06;letter-spacing:-0.025em;color:#221F1B;max-width:440px">Рассчитаем стоимость вашего дома</h2>
-        <p style="font-size:17px;line-height:1.55;color:#56514A;max-width:430px;margin-top:20px">Оставьте заявку — подготовим смету с фиксированной ценой и предложим подходящие проекты под ваш бюджет.</p>
-        <div style="margin-top:34px">
+        <p style="font-size:17px;line-height:1.55;color:#56514A;max-width:430px;margin-top:20px">Оставьте заявку — подготовим смету с фиксированной ценой и предложим подходящие проекты под ваш бюджет. 🎁 Проект — бесплатно.</p>
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:#fff;border:1px solid #EAD5C8;border-radius:100px;padding:9px 18px">
+          <span class="live-dot"></span>
+          <span style="font-size:13.5px;font-weight:600;color:#3D3A34">Мы на связи — перезвоним в течение 15 минут</span>
+        </div>
+        <div style="margin-top:28px">
           <a href="tel:+78001234567" style="font-family:'Geologica';font-weight:800;font-size:26px;color:#221F1B;text-decoration:none;letter-spacing:-0.01em">8 800 123-45-67</a>
           <div style="font-size:13px;color:#8A8275;margin-top:4px">Звонок по России бесплатный</div>
         </div>
@@ -400,7 +591,7 @@
       <div style="position:relative;z-index:1;background:#fff;border:1px solid #ECE3D8;border-radius:20px;padding:32px;box-shadow:0 24px 50px -32px rgba(43,41,38,0.38)">
         <div id="final-form-wrap">
           <form id="final-form" style="display:flex;flex-direction:column;gap:12px">
-            <h3 style="font-weight:700;font-size:22px;color:#221F1B;margin-bottom:4px">Оставить заявку</h3>
+            <h3 style="font-weight:700;font-size:22px;color:#221F1B;margin-bottom:4px">Получить расчёт</h3>
             <input type="text" name="name" placeholder="Ваше имя" required style="width:100%;padding:14px 15px;border:1px solid #E4DACD;border-radius:12px;background:#FBF8F4;font-size:15px;color:#2B2926;outline:none;transition:border-color .2s">
             <input type="tel" name="phone" placeholder="Телефон" required style="width:100%;padding:14px 15px;border:1px solid #E4DACD;border-radius:12px;background:#FBF8F4;font-size:15px;color:#2B2926;outline:none;transition:border-color .2s">
             <select name="area" style="width:100%;padding:14px 15px;border:1px solid #E4DACD;border-radius:12px;background:#FBF8F4;font-size:15px;color:#2B2926;outline:none;appearance:none;cursor:pointer;transition:border-color .2s">
@@ -434,7 +625,7 @@
         <span style="width:30px;height:30px;border-radius:9px;background:#B5683C;flex-shrink:0;display:block"></span>
         <span style="font-family:'Geologica';font-weight:800;font-size:19px;color:#221F1B;letter-spacing:-0.02em">ДомТепло</span>
       </div>
-      <p style="font-size:14px;line-height:1.6;color:#8A8275;max-width:320px">Строительство домов из SIP-панелей под ключ в средней полосе России. Фиксированная цена, гарантия 5 лет.</p>
+      <p style="font-size:14px;line-height:1.6;color:#8A8275;max-width:320px">Строительство домов из СИП-панелей под ключ в Московской области и соседних регионах. Фиксированная цена, гарантия 5 лет.</p>
     </div>
     <div>
       <div style="font-family:'Geologica';font-weight:700;font-size:14px;color:#221F1B;margin-bottom:14px">Контакты</div>
@@ -492,19 +683,44 @@
     card.addEventListener('mouseleave', function() { if (img) img.style.transform = ''; });
   });
 
-  // ── Forms ──
-  document.getElementById('hero-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('hero-form-wrap').style.display = 'none';
-    document.getElementById('hero-success').style.display = 'block';
-  });
-
+  // ── Form ──
   document.getElementById('final-form').addEventListener('submit', function(e) {
     e.preventDefault();
     document.getElementById('final-form-wrap').style.display = 'none';
     var s = document.getElementById('final-success');
     s.style.display = 'flex';
   });
+
+  // ── Animated counters ──
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (reduceMotion || !target) { el.textContent = target; return; }
+    var duration = 1400;
+    var start = null;
+    var done = false;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) { requestAnimationFrame(tick); } else { done = true; }
+    }
+    requestAnimationFrame(tick);
+    setTimeout(function() { if (!done) el.textContent = target; }, duration + 300);
+  }
+
+  var counterIO = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        counterIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('[data-count]').forEach(function(el) { counterIO.observe(el); });
 
   // ── Scroll reveal ──
   var io = new IntersectionObserver(function(entries) {
